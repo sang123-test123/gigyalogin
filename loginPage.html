@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gigya Static Page</title>
+    <script src="https://cdns.gigya.com/js/gigya.js?apikey=YOUR_API_KEY"></script> 
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+        }
+        .login-buttons {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to Our Website!</h1>
+    <p>Please login to continue:</p>
+
+    <!-- Social login buttons -->
+    <div class="login-buttons">
+        <button id="login-facebook">Login with Facebook</button>
+        <button id="login-google">Login with Google</button>
+        <button id="login-twitter">Login with Twitter</button>
+    </div>
+
+    <script>
+        // Initialize Gigya's social login service
+        function gigyaSocialLogin(provider) {
+            gigya.socialize.login({
+                provider: provider,
+                callback: function(response) {
+                    if (response.errorCode === 0) {
+                        alert('Login successful! Welcome ' + response.profile.firstName);
+                    } else {
+                        alert('Login failed: ' + response.errorMessage);
+                    }
+                }
+            });
+        }
+
+        // Attach login button click events to the respective providers
+        document.getElementById("login-facebook").addEventListener("click", function() {
+            gigyaSocialLogin('facebook');
+        });
+        document.getElementById("login-google").addEventListener("click", function() {
+            gigyaSocialLogin('google');
+        });
+        document.getElementById("login-twitter").addEventListener("click", function() {
+            gigyaSocialLogin('twitter');
+        });
+    </script>
+
+</body>
+</html>
