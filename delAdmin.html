@@ -9,7 +9,7 @@ function openDelegatedAdmin() {
     include: 'groups,profile',
     callback: function(event) {
       var params = {
-        "orgId": "376f623d-aec7-4786-8516-89b92e3d36b2"
+        "orgId": event.groups.organizations[0].orgId
       }
       gigya.accounts.b2b.openDelegatedAdminLogin(params);
     }
@@ -20,9 +20,8 @@ function showAuthorization() {
     include: 'groups,profile',
     callback: function(event) {
       var params = {
-        "orgId": "376f623d-aec7-4786-8516-89b92e3d36b2",
+        "orgId": "event.groups.organizations[0].orgId,
         "appId": "P1A6XTAGWPAU0XLB8BKL",
-        "UID": "0611154ed786476486c2b32c993274c3",
         "callback": function(event) {
           alert(JSON.stringify(event, null, 2));
         }
