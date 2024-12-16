@@ -10,7 +10,7 @@ function openDelegatedAdmin() {
     include: 'groups,profile',
     callback: function(event) {
       var params = {
-        "orgId": event.groups.organizations[0].orgId
+        "orgId": "376f623d-aec7-4786-8516-89b92e3d36b2"
       }
       gigya.accounts.b2b.openDelegatedAdminLogin(params);
     }
