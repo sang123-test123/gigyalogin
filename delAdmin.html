@@ -5,6 +5,7 @@
 <script type="text/javascript" lang="javascript" src="https://cdns.gigya.com/js/gigya.js?apikey=4_P6tdatHivcYwXnIsZyAjnQ"></script>
 <script type="text/javascript">
 function openDelegatedAdmin() {
+  alert('Clicked!');
   gigya.accounts.getAccountInfo({
     include: 'groups,profile',
     callback: function(event) {
