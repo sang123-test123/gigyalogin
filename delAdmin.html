@@ -2,27 +2,26 @@
 <head>
 <title>Mobile Ready Screen-Set Implementation Example</title>
 <meta name="viewport" content="width=device-width"><!-- VERY IMPORTANT TO PLACE HERE!! -->
-<script type="text/javascript" lang="javascript" src="https://cdns.gigya.com/js/gigya.js?apikey=4_P6tdatHivcYwXnIsZyAjnQ">
+<script type="text/javascript" lang="javascript" src="https://cdns.gigya.com/js/gigya.js?apikey=4_P6tdatHivcYwXnIsZyAjnQ"></script>
+<script type="text/javascript">
 function openDelegatedAdmin() {
-  alert('Clicked!');
   gigya.accounts.getAccountInfo({
     include: 'groups,profile',
     callback: function(event) {
       var params = {
-        "orgId": "376f623d-aec7-4786-8516-89b92e3d36b2"
+        "orgId": event.groups.organizations[0].orgId
       }
       gigya.accounts.b2b.openDelegatedAdminLogin(params);
     }
   });
 }
 function showAuthorization() {
-  alert('Clicked3!');
   gigya.accounts.getAccountInfo({
     include: 'groups,profile',
     callback: function(event) {
       var params = {
-        "orgId": "376f623d-aec7-4786-8516-89b92e3d36b2",
-        "appId": "T1REAG4YYTLOX4LGBCC7",
+        "orgId": event.groups.organizations[0].orgId,
+        "appId": "P1A6XTAGWPAU0XLB8BKL",
         "callback": function(event) {
           alert(JSON.stringify(event, null, 2));
         }
