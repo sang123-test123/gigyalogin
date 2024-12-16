@@ -23,12 +23,13 @@ function showAuthorization() {
     include: 'groups,profile',
     callback: function(event) {
       var params = {
-        "orgId": event.groups.organizations[0].orgId,
+        "orgId": "376f623d-aec7-4786-8516-89b92e3d36b2",
         "appId": "T1REAG4YYTLOX4LGBCC7",
         "callback": function(event) {
           alert(JSON.stringify(event, null, 2));
         }
       }
+      alert('showauth1!');
       gigya.accounts.b2b.auth.getAssets(params);
     }
   });
