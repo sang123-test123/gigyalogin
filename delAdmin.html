@@ -20,7 +20,7 @@ function showAuthorization() {
     include: 'groups,profile',
     callback: function(event) {
       var params = {
-        "orgId": "event.groups.organizations[0].orgId,
+        "orgId": event.groups.organizations[0].orgId,
         "appId": "P1A6XTAGWPAU0XLB8BKL",
         "callback": function(event) {
           alert(JSON.stringify(event, null, 2));
