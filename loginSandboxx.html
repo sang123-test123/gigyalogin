@@ -25,15 +25,26 @@
         }
       });
 
+      let isSocialLogin = false;
+      
       // Render the screen-set
       gigya.accounts.showScreenSet({
         screenSet: 'bayer-RegistrationLogin', // Replace with your screen set name
         containerID: 'gigya-login-screen',
         onLogin: function(response) {
+          // Detect social login
           if (response.loginProvider && response.loginProvider !== 'site') {
-            // This is a social login → skip TFA and redirect manually
-            console.log("Skipping TFA for social login: " + response.loginProvider);
-            window.location.href = 'https://sang123-test123.github.io/gigyalogin/profileSandboxx.html'; // 🔁 Change to your post-login URL
+            isSocialLogin = true; // Mark that this user logged in via social
+            console.log("Social login detected:", response.loginProvider);
+          }
+        },
+
+        onAfterScreenLoad: function(event) {
+          // Intercept the TFA screen
+          if (event.screen == "bayer-tfa-verification-screen" && isSocialLogin) {
+            console.log("TFA screen reached, but user is social. Skipping TFA...");
+            // Skip TFA by redirecting before it shows
+            window.location.href = "https://sang123-test123.github.io/gigyalogin/profileSandboxx.html"; // Replace with your target page
           }
         }
       });
