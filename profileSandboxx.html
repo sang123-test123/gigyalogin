@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Profile Page</title>
+  <script type="text/javascript">
+    // Load Gigya Web SDK
+    (function () {
+      var gigyaScript = document.createElement('script');
+      gigyaScript.type = 'text/javascript';
+      gigyaScript.async = true;
+      gigyaScript.src = 'https://cdns.gigya.com/js/gigya.js?apiKey=4_5CyApOjvwLWVajBqmQEpTg';
+      var node = document.getElementsByTagName('script')[0];
+      node.parentNode.insertBefore(gigyaScript, node);
+    })();
+
+    // Called once Gigya is ready
+    function onGigyaServiceReady() {
+      // Optional: show profile screen set here if needed
+      gigya.accounts.showScreenSet({
+        screenSet: 'bayer-ProfileUpdate', // Replace with your screen set
+        containerID: 'gigya-profile-container'
+      });
+    }
+
+    // Logout function
+    function logoutUser() {
+      gigya.accounts.logout({
+        callback: function(response) {
+          if (response.errorCode === 0) {
+            console.log("Logout successful");
+            // Redirect to login or homepage
+            window.location.href = "https://sang123-test123.github.io/gigyalogin/loginSandboxx.html"; // Change as needed
+          } else {
+            console.error("Logout failed", response);
+          }
+        }
+      });
+    }
+  </script>
+</head>
+<body>
+
+  <h2>User Profile</h2>
+
+  <!-- Container for the profile update screen -->
+  <div id="gigya-profile-container"></div>
+
+  <!-- Logout button -->
+  <button onclick="logoutUser()">Logout</button>
+
+</body>
+</html>

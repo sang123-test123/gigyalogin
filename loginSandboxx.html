@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SAP Gigya Login</title>
+  <script type="text/javascript">
+    // Load Gigya Web SDK
+    (function () {
+      var gigyaScript = document.createElement('script');
+      gigyaScript.type = 'text/javascript';
+      gigyaScript.async = true;
+      gigyaScript.src = 'https://cdns.gigya.com/js/gigya.js?apiKey=4_5CyApOjvwLWVajBqmQEpTg';
+      var node = document.getElementsByTagName('script')[0];
+      node.parentNode.insertBefore(gigyaScript, node);
+    })();
+
+    // Redirect on successful login
+    function onGigyaServiceReady() {
+      gigya.accounts.addEventHandlers({
+        onLogin: function(response) {
+          // Optionally, inspect the response here
+          console.log("Login successful", response);
+          // Redirect to your desired page
+          window.location.href = "https://sang123-test123.github.io/gigyalogin/profileSandboxx.html"; // Change to your target URL
+        }
+      });
+
+      // Render the screen-set
+      gigya.accounts.showScreenSet({
+        screenSet: 'bayer-RegistrationLogin', // Replace with your screen set name
+        containerID: 'gigya-login-screen'
+      });
+    }
+  </script>
+</head>
+<body>
+
+  <h2>Login with SAP Gigya</h2>
+
+  <!-- Container for the Gigya login screen -->
+  <div id="gigya-login-screen"></div>
+
+</body>
+</html>
