@@ -30,11 +30,12 @@
         screenSet: 'bayer-RegistrationLogin', // Replace with your screen set name
         containerID: 'gigya-login-screen',
         onLogin: function(response) {
-      if (response.loginProvider && response.loginProvider !== 'site') {
-        // This is a social login → skip TFA and redirect manually
-        console.log("Skipping TFA for social login: " + response.loginProvider);
-        window.location.href = 'https://sang123-test123.github.io/gigyalogin/profileSandboxx.html'; // 🔁 Change to your post-login URL
-      }
+          if (response.loginProvider && response.loginProvider !== 'site') {
+            // This is a social login → skip TFA and redirect manually
+            console.log("Skipping TFA for social login: " + response.loginProvider);
+            window.location.href = 'https://sang123-test123.github.io/gigyalogin/profileSandboxx.html'; // 🔁 Change to your post-login URL
+          }
+        }
       });
     }
   </script>
