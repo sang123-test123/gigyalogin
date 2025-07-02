@@ -9,7 +9,7 @@
       var gigyaScript = document.createElement('script');
       gigyaScript.type = 'text/javascript';
       gigyaScript.async = true;
-      gigyaScript.src = 'https://cdns.gigya.com/js/gigya.js?apiKey=4_pgv8diexv2rlx-k4LX5Kyw';
+      gigyaScript.src = 'https://cdns.gigya.com/js/gigya.js?apiKey=4_5CyApOjvwLWVajBqmQEpTg';
       var node = document.getElementsByTagName('script')[0];
       node.parentNode.insertBefore(gigyaScript, node);
     })();
@@ -31,13 +31,13 @@
       gigya.accounts.showScreenSet({
         screenSet: 'bayer-RegistrationLogin', // Replace with your screen set name
         containerID: 'gigya-login-screen',
-        onLogin: function(response) {
+       /* onLogin: function(response) {
           // Detect social login
           if (response.loginProvider && response.loginProvider !== 'site') {
             isSocialLogin = true; // Mark that this user logged in via social
             console.log("Social login detected:", response.loginProvider);
           }
-        },
+        },*/
 
         onAfterScreenLoad: function(event) {
           // Intercept the TFA screen
