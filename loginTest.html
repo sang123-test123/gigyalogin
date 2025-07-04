@@ -28,7 +28,7 @@
       // Render the screen-set
       gigya.accounts.showScreenSet({
         screenSet: 'bayer-RegistrationLogin', // Replace with your screen set name
-        containerID: 'gigya-login-screen'
+        containerID: 'gigya-login-container'
       });
     }
   </script>
@@ -41,4 +41,39 @@
   <div id="gigya-login-screen"></div>
 
 </body>
+  <style>
+  #gigya-login-container .gigya-screen {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #333;
+  }
+
+  #gigya-login-container input,
+  #gigya-login-container button,
+  #gigya-login-container label {
+    font-size: 1rem;
+    width: 100%;
+  }
+
+  #gigya-login-container .gigya-input-submit {
+    font-size: 1rem;
+    padding: 0.75em 1.5em;
+  }
+
+  #gigya-login-container .gigya-error-message {
+    font-size: 0.9rem;
+    color: #b00020;
+  }
+
+  #gigya-login-container .gigya-layout-row {
+    margin-bottom: 1.5em;
+  }
+
+  #gigya-login-container .gigya-social-login {
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+</style>
 </html>
