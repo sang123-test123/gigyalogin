@@ -1,8 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>SAP Gigya Login</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - SAP CDC</title>
+
+  <!-- Base styles to support responsive, scalable text -->
+  <style>
+    html {
+      font-size: 100%; /* Respects browser default (typically 16px) */
+    }
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 1rem;
+      margin: 0;
+      padding: 2rem;
+      background-color: #f8f9fa;
+    }
+
+    /* Container for the Gigya screen-set */
+    #gigya-login-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Make screen-set text scale responsively */
+    #gigya-login-container .gigya-screen {
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #333;
+    }
+
+    #gigya-login-container input,
+    #gigya-login-container button,
+    #gigya-login-container label {
+      font-size: 1rem;
+      width: 100%;
+    }
+
+    #gigya-login-container .gigya-input-submit {
+      font-size: 1rem;
+      padding: 0.75em 1.5em;
+    }
+
+    #gigya-login-container .gigya-error-message {
+      font-size: 0.9rem;
+      color: #b00020;
+    }
+
+    #gigya-login-container .gigya-layout-row {
+      margin-bottom: 1.5em;
+    }
+
+    #gigya-login-container .gigya-social-login {
+      font-size: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Login</h1>
+  <div id="gigya-login-container"></div>
+
+  <!-- Load Gigya (CDC) script -->
+  <script src="https://cdns.gigya.com/js/gigya.js?apiKey=YOUR_API_KEY"></script>
+
   <script type="text/javascript">
     // Load Gigya Web SDK
     (function () {
@@ -25,55 +94,12 @@
         }
       });
 
-      // Render the screen-set
-      gigya.accounts.showScreenSet({
-        screenSet: 'bayer-RegistrationLogin', // Replace with your screen set name
-        containerID: 'gigya-login-container'
-      });
-    }
+    gigya.accounts.showScreenSet({
+      screenSet: 'bayer-RegistrationLogin', // Replace with your screen set name
+      containerID: 'gigya-login-container',
+      responsive: true
+    });
   </script>
-</head>
-<body>
-
-  <h2>Login with SAP Gigya</h2>
-
-  <!-- Container for the Gigya login screen -->
-  <div id="gigya-login-screen"></div>
 
 </body>
-  <style>
-  #gigya-login-container .gigya-screen {
-    font-size: 1rem;
-    line-height: 1.5;
-    color: #333;
-  }
-
-  #gigya-login-container input,
-  #gigya-login-container button,
-  #gigya-login-container label {
-    font-size: 1rem;
-    width: 100%;
-  }
-
-  #gigya-login-container .gigya-input-submit {
-    font-size: 1rem;
-    padding: 0.75em 1.5em;
-  }
-
-  #gigya-login-container .gigya-error-message {
-    font-size: 0.9rem;
-    color: #b00020;
-  }
-
-  #gigya-login-container .gigya-layout-row {
-    margin-bottom: 1.5em;
-  }
-
-  #gigya-login-container .gigya-social-login {
-    font-size: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-  }
-</style>
 </html>
